@@ -10,13 +10,13 @@ import (
 
 func main() {
 	if len(os.Args[1:]) == 0 {
-		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.40 > 0.12.37'")
+		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.37 < 0.12.40'")
 		os.Exit(1)
 	}
 
 	parts := strings.Split(os.Args[1], " ")
 	if len(parts) != 3 {
-		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.40 > 0.12.37'")
+		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.37 < 0.12.40'")
 		os.Exit(1)
 	}
 

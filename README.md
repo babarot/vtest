@@ -14,7 +14,8 @@ $ go get github.com/b4b4r07/vtest
 ```bash
 #!/bin/bash
 
-if vtest "0.12.40 > ${version}"; then
+# Check ${version} is greater than the threshold or not.
+if vtest "${version} < 0.12.40"; then
     : ok
 else
     echo "need to be upgraded" >&2
