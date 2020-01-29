@@ -5,9 +5,10 @@ Unix `test` command for Version comparison
 
 ## Installation
 
-```console
-$ go get github.com/b4b4r07/vtest
-```
+Download the binary from [GitHub Releases][release] and drop it in your `$PATH`.
+
+- [Darwin / Mac][release]
+- [Linux][release]
 
 ## Usage
 
@@ -25,8 +26,12 @@ fi
 
 ## License
 
-MIT
+[MIT][license]
 
 ## Author
 
-b4b4r07
+[b4b4r07][author]
+
+[author]:  https://tellme.tokyo
+[release]: https://github.com/b4b4r07/vtest/releases/latest
+[license]: https://b4b4r07.mit-license.org
