@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strings"
@@ -8,25 +9,30 @@ import (
 	"github.com/mcuadros/go-version"
 )
 
+// error message template
+var (
+	ErrInvalidUsage = errors.New("requires the following arguments. '0.12.37 < 0.12.40'")
+)
+
 func main() {
 	if len(os.Args[1:]) == 0 {
-		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.37 < 0.12.40'")
+		fmt.Fprintln(os.Stderr, ErrInvalidUsage)
 		os.Exit(1)
 	}
 
 	parts := strings.Split(os.Args[1], " ")
 	if len(parts) != 3 {
-		fmt.Fprintln(os.Stderr, "requires the following arguments. '0.12.37 < 0.12.40'")
+		fmt.Fprintln(os.Stderr, ErrInvalidUsage)
 		os.Exit(1)
 	}
 
 	var (
-		v1       = parts[0]
-		v2       = parts[2]
+		lhs      = parts[0]
+		rhs      = parts[2]
 		operater = parts[1]
 	)
 
-	if !version.Compare(v1, v2, operater) {
+	if !version.Compare(lhs, rhs, operater) {
 		os.Exit(1)
 	}
 }
